@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TuneHub</title>
+</head>
+<body>
+<table border>
+<thead>
+<tr>
+<td>Playlist ID</td>
+<td>Playlist Name</td>
+<td>Playlist Songs</td>
+</tr></thead>
+
+<tbody>
+   <tr th:each="fpl: ${plist}">
+     <td th:text=${fpl.id}></td>
+     <td th:text=${fpl.name}></td>
+      
+     <td>
+     <ul>
+     <li th:each="s: ${fpl.songs}">
+     <span th:text="${s.name}"></span>
+     <audio controls>
+     <source th:src="${s.link}" type="audio/mpeg">
+     
+     </audio>
+    
+     </li>
+     </ul>
+</tbody>
+</table>
+</body>
+</html>
